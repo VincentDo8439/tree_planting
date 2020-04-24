@@ -6,14 +6,6 @@ import 'info_screen.dart';
 import 'leaderboard_screen.dart';
 import 'map_screen.dart';
 
-
-
-
-
-
-
-
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -31,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: _pageOptions[_selectedTab],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -40,10 +31,8 @@ class _HomePageState extends State<HomePage> {
             BoxShadow(
                 color: Colors.black54,
                 blurRadius: 5.0,
-                offset: Offset(0.0, 0.75)
-            )
+                offset: Offset(0.0, 0.75))
           ],
-
         ),
         child: CurvedNavigationBar(
           height: MediaQuery.of(context).size.height / 14,
@@ -51,8 +40,14 @@ class _HomePageState extends State<HomePage> {
           items: <Widget>[
             Icon(Icons.home, size: 30),
             Icon(Icons.people, size: 30),
-            Icon(Icons.insert_chart, size: 30,),
-            Icon(Icons.person, size: 30,),
+            Icon(
+              Icons.insert_chart,
+              size: 30,
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+            ),
             //Icon(Icons.account_circle, size: 30),
           ],
           onTap: (index) {
