@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -8,6 +8,8 @@ class MapScreen extends StatefulWidget {
 class _Map_ScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Map'),);
+    return Container(
+      child: Text('Map'),
+    );
   }
 }
