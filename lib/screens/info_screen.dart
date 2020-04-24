@@ -65,6 +65,12 @@ class _InfoScreenState extends State<InfoScreen> {
                       height: 275,
                       width: double.infinity,
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 5.0,
+                          )
+                        ],
                         gradient: LinearGradient(
                             begin: Alignment.bottomLeft,
                             end: Alignment.topRight,
@@ -157,6 +163,9 @@ class _InfoScreenState extends State<InfoScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       return _buildInfoCard(index);
                     }),
+              ),
+              SizedBox(
+                height: 20,
               )
             ],
           ),

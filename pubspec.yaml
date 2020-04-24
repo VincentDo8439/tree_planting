@@ -48,6 +48,7 @@ flutter:
     - assets/icons/forest2.svg
     - assets/icons/leaves.svg
     - assets/icons/sprout.svg
+    - assets/images/profile.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
