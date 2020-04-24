@@ -85,15 +85,15 @@ class _QuestScreenState extends State<QuestScreen> {
                           height: MediaQuery.of(context).size.height - 195.0,
                           child: ListView(
                             children: [
-                              _buildQuestList('images/aloe_vera.jpg',
+                              _buildQuestList('assets/aloe_vera.jpg',
                                   'Aloe Vera', '500pts'),
                               _buildQuestList(
-                                  'images/scallion.jpg', 'Scallion', '250pts'),
-                              _buildQuestList('images/silver_birch.jpg',
+                                  'assets/scallion.jpg', 'Scallion', '250pts'),
+                              _buildQuestList('assets/silver_birch.jpg',
                                   'Silver Birch', '1000pts'),
-                              _buildQuestList('images/english_oak.jpg',
+                              _buildQuestList('assets/english_oak.jpg',
                                   'English Oak', '1000pts'),
-                              _buildQuestList('images/japanese_maple.jpg',
+                              _buildQuestList('assets/japanese_maple.jpg',
                                   'Japanese Maple', '1000pts'),
                             ],
                           ),
