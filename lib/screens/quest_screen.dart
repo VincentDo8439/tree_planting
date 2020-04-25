@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treeplanting/widget/quest_completion.dart';
 
 class QuestScreen extends StatefulWidget {
   @override
@@ -114,7 +115,13 @@ class _QuestScreenState extends State<QuestScreen> {
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push((MaterialPageRoute(
+              builder: (context) => quest_completion(
+                  heroTag: imgPath,
+                  questName: questName,
+                  pointValue: pointValue))));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -146,7 +153,8 @@ class _QuestScreenState extends State<QuestScreen> {
                       ),
                       Text(
                         pointValue,
-                        style: TextStyle(fontSize: 17.0, color: Colors.grey),
+                        style:
+                            TextStyle(fontSize: 17.0, color: Colors.grey[700]),
                       )
                     ],
                   )
@@ -156,7 +164,13 @@ class _QuestScreenState extends State<QuestScreen> {
             IconButton(
               icon: Icon(Icons.assignment_turned_in),
               color: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push((MaterialPageRoute(
+                    builder: (context) => quest_completion(
+                        heroTag: imgPath,
+                        questName: questName,
+                        pointValue: pointValue))));
+              },
             ),
           ],
         ),
