@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -51,16 +53,14 @@ class _LeaderBoardScreenState extends State<LeaderboardScreen> {
                 ),
                 Container(
                   child: Column(
-
                     children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                      ),
                       SizedBox(
                         height: 20,
                       ),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
+                      //imagesCard(),
                     ],
                   ),
                 )
@@ -73,10 +73,40 @@ class _LeaderBoardScreenState extends State<LeaderboardScreen> {
   }
 }
 
+/* Widget imagesCard() => Container(
+  child: Expanded(
+    child: Card(
+      child: ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: 5,
+        itemBuilder: (context, index),
+      ),
+    ),
+  ),
+);  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class _leaderboardTile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
       child: Container(
