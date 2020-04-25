@@ -1,60 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:treeplanting/widgets/info_card_list.dart';
+import 'package:treeplanting/models/info_card_model.dart';
 
 class InfoScreen extends StatefulWidget {
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
 
-Widget _buildInfoCard(int index) {
-  return Container(
-    margin: const EdgeInsets.all(8.0),
-    padding: const EdgeInsets.all(8.0),
-    width: 200,
-    height: 100,
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10.0),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black12,
-          blurRadius: 5.0,
-        ),
-      ],
-    ),
-    child: Center(
-      child: Column(
-        children: <Widget>[
-          Text(index.toString()),
-          SvgPicture.asset('assets/icons/forest2.svg',
-              fit: BoxFit.fitWidth, height: 100)
-        ],
-      ),
-    ),
-  );
-}
-
 class _InfoScreenState extends State<InfoScreen> {
-  List<String> _infoCardTitles = [
-    'Your First Tree',
-    'Tree Maintenance',
-    'Types of Trees',
-    'Tree of the Day',
-    'Tree',
-    'Tree',
+  final List<InfoCard> gettingStartedInfoCards = [
+    InfoCard(
+        title: 'Your First Tree',
+        imageUrl:
+            'https://previews.123rf.com/images/katerinamk/katerinamk1109/katerinamk110900009/10461003-illustration-of-tree-sapling-on-white-background.jpg'),
+    InfoCard(
+        title: 'Your Second Tree',
+        imageUrl:
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg'),
+    InfoCard(
+        title: 'Your Third Tree',
+        imageUrl:
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg'),
+    InfoCard(
+        title: 'Your Fourth Tree',
+        imageUrl:
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg')
   ];
-  List<String> _secondInfoCardTitles = [
-    'Tree',
-    'Tree',
-    'Tree',
-    'Tree',
-    'Tree',
-    'Tree',
+
+  final List<InfoCard> otherInfoCards = [
+    InfoCard(
+        title: 'test 1',
+        imageUrl:
+            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
+    InfoCard(
+        title: 'test 2',
+        imageUrl:
+            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
+    InfoCard(
+        title: 'test 3',
+        imageUrl:
+            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(84, 207, 39, .2),
+      backgroundColor: Color.fromRGBO(183, 246, 154, 1),
       body: ListView(
         children: <Widget>[
           Column(
@@ -89,23 +80,22 @@ class _InfoScreenState extends State<InfoScreen> {
                             child: Stack(
                               children: <Widget>[
                                 Positioned(
-                                  top: 10,
+                                  top: 5,
+                                  left: 18,
                                   child: SvgPicture.asset(
                                     'assets/icons/forest.svg',
-                                    width: 240,
-                                    fit: BoxFit.fitWidth,
+                                    width: 250,
                                   ),
                                 ),
                                 Positioned(
-                                  left: 75,
                                   top: 0,
+                                  left: 75,
                                   child: Text(
                                     'Information',
                                     style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.greenAccent,
-                                      fontSize: 50,
-                                    ),
+                                        fontSize: 50,
+                                        color: Colors.white70,
+                                        letterSpacing: 2.0),
                                   ),
                                 ),
                                 Container(),
@@ -120,25 +110,21 @@ class _InfoScreenState extends State<InfoScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                      ),
                       child: Text(
                         'Getting Started',
-                        style: TextStyle(fontSize: 20, color: Colors.green),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.green,
+                            letterSpacing: 2.0),
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                height: 200,
-                child: ListView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: _infoCardTitles.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return _buildInfoCard(index);
-                    }),
-              ),
+              infoCardList(infoCards: gettingStartedInfoCards),
               SizedBox(
                 height: 40,
                 child: Row(
@@ -148,22 +134,16 @@ class _InfoScreenState extends State<InfoScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
                         'Other Resources',
-                        style: TextStyle(fontSize: 20, color: Colors.green),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.green,
+                            letterSpacing: 2.0),
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                height: 200,
-                child: ListView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: _secondInfoCardTitles.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return _buildInfoCard(index);
-                    }),
-              ),
+              infoCardList(infoCards: otherInfoCards),
               SizedBox(
                 height: 20,
               )
