@@ -122,9 +122,6 @@ class _leaderboardTile extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 1,
-            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -145,24 +142,21 @@ class _leaderboardTile extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
-              width: 20,
-            ),
             Text(
               "🥇",
               style: TextStyle(fontSize: 40, color: Colors.white),
             ),
-            SizedBox(
-              width: 10,
-            ),
-            RaisedButton(
-              onPressed: () {},
-              child: Text(
-                "Add Friend",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {},
+                child: Text(
+                  "Add Friend",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                color: Colors.redAccent,
               ),
-              color: Colors.redAccent,
             )
           ],
         ),
