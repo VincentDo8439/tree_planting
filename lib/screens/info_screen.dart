@@ -35,14 +35,15 @@ class _InfoScreenState extends State<InfoScreen> {
             'https://durhamtreesolutions.com/wp-content/uploads/2019/05/Durham-Tree-Solutions-Tree-Care-Maintenance-1-1024x678.jpg',
         description:
             'Think of tree care as an investment. A healthy tree increases in value with age and pays big dividends by increasing property values, beautifying our surroundings, purifying our air, and saving energy by providing cooling shade from summers heat and protection from winter’s wind.',
-        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree'),
+        resourceUrl: 'https://theimpatientfarmer.com/taking-care-of-trees/'),
     InfoCard(
         title: 'Tree growth',
         imageUrl:
             'https://radio.wpsu.org/sites/wpsu/files/styles/x_large/public/201506/tree_before_and_after.jpg',
         description:
             'As trees get bigger they will possibly outgrow their old home and want to move to a new one',
-        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree')
+        resourceUrl:
+            'https://agrilife.org/treecarekit/introduction-to-tree-care/how-trees-grow/')
   ];
 
   final List<InfoCard> otherInfoCards = [
@@ -51,7 +52,7 @@ class _InfoScreenState extends State<InfoScreen> {
         imageUrl:
             'https://www.conserve-energy-future.com/wp-content/uploads/2019/08/worms-eyeview-of-green-trees-forests.jpg',
         description: 'There\'s a reason why trees are called Earth\'s lungs!',
-        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree'),
+        resourceUrl: 'https://canopy.org/tree-info/benefits-of-trees/'),
     InfoCard(
         title: 'Types of Trees',
         imageUrl:

@@ -113,10 +113,6 @@ class _Map_ScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Places to Garden'),
-        backgroundColor: Colors.green[600],
-      ),
       body: Stack(
         children: <Widget>[
           _zoomminusfunction(),

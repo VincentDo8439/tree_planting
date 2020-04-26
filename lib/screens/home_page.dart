@@ -1,7 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:treeplanting/screens/quest_screen.dart';
-
 import 'info_screen.dart';
 import 'leaderboard_screen.dart';
 import 'map_screen.dart';
@@ -14,8 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedTab = 0;
   var _pageOptions = [
-    QuestScreen(),
     MapScreen(),
+    QuestScreen(),
     InfoScreen(),
     LeaderboardScreen(),
   ];
@@ -35,18 +34,18 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         child: CurvedNavigationBar(
-          height: MediaQuery.of(context).size.height / 14,
+          height: MediaQuery.of(context).size.height / 12,
           backgroundColor: Colors.grey[200],
           items: <Widget>[
-            Icon(Icons.home, size: 30),
-            Icon(Icons.people, size: 30),
+            Icon(Icons.map, size: 25),
+            Icon(Icons.assignment, size: 25),
             Icon(
-              Icons.insert_chart,
-              size: 30,
+              Icons.info,
+              size: 25,
             ),
             Icon(
-              Icons.person,
-              size: 30,
+              Icons.poll,
+              size: 25,
             ),
             //Icon(Icons.account_circle, size: 30),
           ],
