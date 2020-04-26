@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
-
 class InfoCard {
-  String title;
-  String imageUrl;
+  final String title;
+  final String imageUrl;
+  final String description;
+  final String resourceUrl;
 
-  InfoCard({this.title, this.imageUrl});
+  InfoCard({this.title, this.imageUrl, this.description, this.resourceUrl});
 }

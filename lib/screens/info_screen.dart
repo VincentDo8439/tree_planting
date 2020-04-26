@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:treeplanting/widgets/info_card_list.dart';
+import 'package:treeplanting/widget/info_card_list.dart';
 import 'package:treeplanting/models/info_card_model.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -13,35 +13,60 @@ class _InfoScreenState extends State<InfoScreen> {
     InfoCard(
         title: 'Your First Tree',
         imageUrl:
-            'https://previews.123rf.com/images/katerinamk/katerinamk1109/katerinamk110900009/10461003-illustration-of-tree-sapling-on-white-background.jpg'),
+            'https://previews.123rf.com/images/katerinamk/katerinamk1109/katerinamk110900009/10461003-illustration-of-tree-sapling-on-white-background.jpg',
+        description: 'Planting a tree is a lifelong investment. '
+            'ow well this investment grows depends on the type of tree selected and'
+            ' the planting location, the care provided during planting, and the follow-up'
+            ' care after planting. Getting your new tree off to a healthy start will help '
+            'the tree mature to its full size and ensures it will provide environmental, '
+            'economic, and social benefits throughout its lifetime.',
+        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree'),
     InfoCard(
-        title: 'Your Second Tree',
+        title: 'Picking the right Tree',
         imageUrl:
-            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg'),
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg',
+        description:
+            'Many trees have the potential to outlive those who plant them, so the impact of this decision can last a lifetime. Matching the tree to the site benefits both the tree and the homeowner.',
+        resourceUrl:
+            'https://www.treesaregood.org/treeowner/choosingtherighttree'),
     InfoCard(
-        title: 'Your Third Tree',
+        title: 'Tree Maintenance',
         imageUrl:
-            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg'),
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg',
+        description:
+            'Think of tree care as an investment. A healthy tree increases in value with age and pays big dividends by increasing property values, beautifying our surroundings, purifying our air, and saving energy by providing cooling shade from summers heat and protection from winter’s wind.',
+        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree'),
     InfoCard(
-        title: 'Your Fourth Tree',
+        title: 'Tree growth',
         imageUrl:
-            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg')
+            'https://assets.merriam-webster.com/ld/word_of_the_day/images/2777/large.jpg',
+        description:
+            'As trees get bigger they will possibly outgrow their old home and want to move to a new one',
+        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree')
   ];
 
   final List<InfoCard> otherInfoCards = [
     InfoCard(
-        title: 'test 1',
+        title: 'Environmental Benefits',
         imageUrl:
-            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
+            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg',
+        description: 'There\'s a reason why trees are called Earth\'s lungs!',
+        resourceUrl: 'https://www.treesaregood.org/treeowner/plantingatree'),
     InfoCard(
-        title: 'test 2',
+        title: 'Types of Trees',
         imageUrl:
-            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
+            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg',
+        description: 'There are over 60,000 species of trees!',
+        resourceUrl:
+            'https://www.sciencemag.org/news/2017/04/how-many-tree-species-are-there-more-you-can-shake-stick-new-database-reveals'),
     InfoCard(
-        title: 'test 3',
+        title: 'Tree of the Day',
         imageUrl:
-            'https://previews.123rf.com/images/studio2013/studio20131508/studio2013150800152/43963134-big-trees-in-the-garden.jpg'),
+            'https://www.naturehills.com/pub/media/catalog/product/r/e/red-maple-tree-overview-600x600.jpg',
+        description: 'Today\'s tree is maple',
+        resourceUrl: 'https://en.wikipedia.org/wiki/Maple'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,14 +1,26 @@
+import 'package:treeplanting/screens/info_card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:treeplanting/models/info_card_model.dart';
+import 'package:path/path.dart';
 
 class infoCardList extends StatelessWidget {
   final List<InfoCard> infoCards;
 
   infoCardList({this.infoCards});
 
-  Widget _buildInfoCard(int index) {
+  Widget _buildInfoCard(int index, context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => infoCardScreen(
+                      title: infoCards[index].title,
+                      imageUrl: infoCards[index].imageUrl,
+                      description: infoCards[index].description,
+                      resourceUrl: infoCards[index].resourceUrl,
+                    )));
+      },
       child: Container(
           margin: const EdgeInsets.all(8.0),
           width: 180,
@@ -28,7 +40,7 @@ class infoCardList extends StatelessWidget {
             children: <Widget>[
               Container(
                 width: 180,
-                height: 145,
+                height: 130,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18.0),
                   boxShadow: [
@@ -49,9 +61,11 @@ class infoCardList extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  infoCards[index].title,
-                  style: TextStyle(fontSize: 20, color: Colors.green),
+                child: Center(
+                  child: Text(
+                    infoCards[index].title,
+                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  ),
                 ),
               ),
             ],
@@ -68,7 +82,7 @@ class infoCardList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: infoCards.length,
           itemBuilder: (BuildContext context, int index) {
-            return _buildInfoCard(index);
+            return _buildInfoCard(index, context);
           }),
     );
   }

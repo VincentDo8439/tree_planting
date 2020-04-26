@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:treeplanting/screens/home_page.dart';
-import 'package:treeplanting/screens/info_screen.dart';
 
 void main() => runApp(MyApp());
 
