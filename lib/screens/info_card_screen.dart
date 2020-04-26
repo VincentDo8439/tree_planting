@@ -88,12 +88,12 @@ class _infoCardScreenState extends State<infoCardScreen> {
             ),
           ),
         ),
-        Container(
-          width: 200,
-          child: GestureDetector(
-            onTap: () {
-              launchURL(widget.resourceUrl);
-            },
+        GestureDetector(
+          onTap: () {
+            launchURL(widget.resourceUrl);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
             child: Container(
               width: 100,
               height: 100,
