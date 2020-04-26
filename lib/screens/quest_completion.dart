@@ -2,13 +2,16 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:treeplanting/screens/home_page.dart';
+import 'package:treeplanting/screens/quest_screen.dart';
 
 class quest_completion extends StatefulWidget {
   final heroTag;
   final questName;
   final pointValue;
+  final index;
 
-  quest_completion({this.heroTag, this.questName, this.pointValue});
+  quest_completion({this.heroTag, this.questName, this.pointValue, this.index});
 
   @override
   _quest_completionState createState() => _quest_completionState();
@@ -127,23 +130,26 @@ class _quest_completionState extends State<quest_completion> {
                         onTap: () {
                           print('Complete Quest');
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.0),
-                                  topRight: Radius.circular(10.0)),
-                              color: Color.fromRGBO(3, 64, 3, 1.0)),
-                          height: 65.0,
-                          child: Center(
-                            child: Text('Complete Quest',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25.0,
-                                  fontFamily: null,
-                                )),
+                        child: GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10.0),
+                                    topRight: Radius.circular(10.0)),
+                                color: Color.fromRGBO(3, 64, 3, 1.0)),
+                            height: 65.0,
+                            child: Center(
+                              child: Text('Complete Quest',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25.0,
+                                    fontFamily: null,
+                                  )),
+                            ),
+                            width: MediaQuery.of(context).size.width,
                           ),
-                          width: MediaQuery.of(context).size.width,
                         ),
                       ),
                     )

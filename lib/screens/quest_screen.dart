@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treeplanting/widget/quest_completion.dart';
+import 'package:treeplanting/screens/quest_completion.dart';
 
 class QuestScreen extends StatefulWidget {
   @override
@@ -7,6 +7,36 @@ class QuestScreen extends StatefulWidget {
 }
 
 class _QuestScreenState extends State<QuestScreen> {
+  List images = [
+    'assets/aloe_vera.jpg',
+    'assets/scallion.jpg',
+    'assets/silver_birch.jpg',
+    'assets/english_oak.jpg',
+    'assets/japanese_maple.jpg',
+    'assets/orange_tree.jpg',
+    'assets/bonsai.png',
+    'assets/sequoioideae.jpg'
+  ];
+  List names = [
+    'Aloe Vera',
+    'Scallion',
+    'Silver Birch',
+    'English Oak',
+    'Japanese Maple',
+    'Orange Tree',
+    'Bonsai Tree',
+    'Sequioideae'
+  ];
+  List points = [
+    '500pts',
+    '250pts',
+    '1000pts',
+    '1000pts',
+    '1000pts',
+    '750pts',
+    '750pts',
+    '1500pts'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +45,7 @@ class _QuestScreenState extends State<QuestScreen> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
-                top: 15.0,
+                top: 10.0,
                 left:
                     10.0), /*
             child: Row(
@@ -67,7 +97,7 @@ class _QuestScreenState extends State<QuestScreen> {
           ),
           SizedBox(height: 40.0),
           Container(
-            height: MediaQuery.of(context).size.height - 195.0,
+            height: MediaQuery.of(context).size.height - 190.0,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(75.0)),
@@ -77,26 +107,19 @@ class _QuestScreenState extends State<QuestScreen> {
               padding: EdgeInsets.only(left: 25.0, right: 20.0),
               children: <Widget>[
                 Container(
-                  height: MediaQuery.of(context).size.height - 195.0,
+                  height: MediaQuery.of(context).size.height - 180.0,
                   child: ListView(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(top: 45.0),
+                        padding: EdgeInsets.only(top: 30.0),
                         child: Container(
-                          height: MediaQuery.of(context).size.height - 195.0,
-                          child: ListView(
-                            children: [
-                              _buildQuestList('assets/aloe_vera.jpg',
-                                  'Aloe Vera', '500pts'),
-                              _buildQuestList(
-                                  'assets/scallion.jpg', 'Scallion', '250pts'),
-                              _buildQuestList('assets/silver_birch.jpg',
-                                  'Silver Birch', '1000pts'),
-                              _buildQuestList('assets/english_oak.jpg',
-                                  'English Oak', '1000pts'),
-                              _buildQuestList('assets/japanese_maple.jpg',
-                                  'Japanese Maple', '1000pts'),
-                            ],
+                          height: MediaQuery.of(context).size.height - 225.0,
+                          child: ListView.builder(
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            itemCount: names.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return _buildQuestList(index);
+                            },
                           ),
                         ),
                       )
@@ -111,16 +134,24 @@ class _QuestScreenState extends State<QuestScreen> {
     );
   }
 
-  Widget _buildQuestList(String imgPath, String questName, String pointValue) {
+  Widget _buildQuestList(int index) {
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
         onTap: () {
           Navigator.of(context).push((MaterialPageRoute(
               builder: (context) => quest_completion(
-                  heroTag: imgPath,
-                  questName: questName,
-                  pointValue: pointValue))));
+                  heroTag: images[index],
+                  questName: names[index],
+                  pointValue: points[index],
+                  index: index))));
+          Future.delayed(const Duration(milliseconds: 200), () {
+            setState(() {
+              images.removeAt(index);
+              names.removeAt(index);
+              points.removeAt(index);
+            });
+          });
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,11 +160,11 @@ class _QuestScreenState extends State<QuestScreen> {
               child: Row(
                 children: <Widget>[
                   Hero(
-                    tag: imgPath,
+                    tag: images[index],
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(25.0),
                       child: Image(
-                        image: AssetImage(imgPath),
+                        image: AssetImage(images[index]),
                         fit: BoxFit.cover,
                         height: 75.0,
                         width: 75.0,
@@ -145,14 +176,14 @@ class _QuestScreenState extends State<QuestScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        questName,
+                        names[index],
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        pointValue,
+                        points[index],
                         style:
                             TextStyle(fontSize: 17.0, color: Colors.grey[700]),
                       )
@@ -167,9 +198,9 @@ class _QuestScreenState extends State<QuestScreen> {
               onPressed: () {
                 Navigator.of(context).push((MaterialPageRoute(
                     builder: (context) => quest_completion(
-                        heroTag: imgPath,
-                        questName: questName,
-                        pointValue: pointValue))));
+                        heroTag: images[index],
+                        questName: names[index],
+                        pointValue: points[index]))));
               },
             ),
           ],
