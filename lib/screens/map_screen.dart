@@ -1,5 +1,4 @@
 import 'dart:async';
-/*import 'dart:html';*/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -10,7 +9,6 @@ class MapScreen extends StatefulWidget {
 }
 
 class _Map_ScreenState extends State<MapScreen> {
-
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(29.712254, 95.791260);
   final Set<Marker> _markers = {};
@@ -19,173 +17,144 @@ class _Map_ScreenState extends State<MapScreen> {
   double zoomVal = 5.0;
 
   static final CameraPosition _position1 = CameraPosition(
-  bearing : 192.833,
-  target : LatLng(29.712254, 95.791260),
-  tilt : 59.440,
-  zoom : 11,
+    bearing: 192.833,
+    target: LatLng(29.712254, 95.791260),
+    tilt: 59.440,
+    zoom: 11,
   );
 
-Future<void> _goToPosition() async{
-  final GoogleMapController controller = await _controller.future;
-  controller.animateCamera(CameraUpdate.newCameraPosition(_position1));
+  Future<void> _goToPosition() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(_position1));
+  }
 
-}
-
-
-  Widget _zoomminusfunction(){
-
+  Widget _zoomminusfunction() {
     return Align(
       alignment: Alignment.topLeft,
       child: IconButton(
-        icon: Icon(Icons.minimize,
-            color: Color(0xff6200ee)),
+        icon: Icon(Icons.minimize, color: Color(0xff6200ee)),
         onPressed: () {
           zoomVal--;
           _minus(zoomVal);
         },
       ),
-
     );
-
-
   }
 
-
-  Widget _zoomplusfunction(){
-
+  Widget _zoomplusfunction() {
     return Align(
       alignment: Alignment.topRight,
       child: IconButton(
-        icon: Icon(Icons.add,
-            color: Color(0xff6200ee)),
+        icon: Icon(Icons.add, color: Color(0xff6200ee)),
         onPressed: () {
           zoomVal++;
           _plus(zoomVal);
         },
       ),
-
     );
-
-
   }
 
-
-
-
-  Future<void> _minus(double zoomVal) async{
+  Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(37.688208,121.870667),zoom: zoomVal)));
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(target: LatLng(37.688208, 121.870667), zoom: zoomVal)));
   }
 
-
-
-
-
-  Future<void> _plus(double zoomVal) async{
+  Future<void> _plus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(37.688208,121.870667),zoom: zoomVal)));
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(target: LatLng(37.688208, 121.870667), zoom: zoomVal)));
   }
 
-
-
-
-  _onMapCreated(GoogleMapController controller){
-         _controller.complete(controller);
-
-  }
-   _onCameraMove(CameraPosition position){
-       _lastMP = position.target;
-
-   }
-
-  Widget button(Function function, IconData icon){
-     return FloatingActionButton(
-       onPressed: function,
-       materialTapTargetSize: MaterialTapTargetSize.padded,
-       backgroundColor: Colors.green,
-       child: Icon(icon, size: 36.0,),
-
-     );
+  _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
   }
 
-  _onMapTypeButtonPressed(){
+  _onCameraMove(CameraPosition position) {
+    _lastMP = position.target;
+  }
+
+  Widget button(Function function, IconData icon) {
+    return FloatingActionButton(
+      onPressed: function,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+      backgroundColor: Colors.green,
+      child: Icon(
+        icon,
+        size: 36.0,
+      ),
+    );
+  }
+
+  _onMapTypeButtonPressed() {
     setState(() {
-      _currentMapType = _currentMapType==MapType.normal ? MapType.satellite : MapType.normal;
+      _currentMapType = _currentMapType == MapType.normal
+          ? MapType.satellite
+          : MapType.normal;
     });
   }
 
-
-  _onAddMarkerButtonPressed(){
-
+  _onAddMarkerButtonPressed() {
     setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId(_lastMP.toString()),
-        position: _lastMP,
+      _markers.add(
+        Marker(
+          markerId: MarkerId(_lastMP.toString()),
+          position: _lastMP,
           infoWindow: InfoWindow(
-            title:  'Plant Request',
+            title: 'Plant Request',
             snippet: 'Please accept or decline',
           ),
           icon: BitmapDescriptor.defaultMarker,
-          ),
+        ),
       );
     });
   }
 
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-       appBar: AppBar(
-         title: Text('Places to Garden'),
-         backgroundColor: Colors.green[600],
-       ),
-       body: Stack(
-         children: <Widget>[
-           _zoomminusfunction(),
-           _zoomplusfunction(),
-
-           GoogleMap(
-             onMapCreated: _onMapCreated,
-             initialCameraPosition: CameraPosition(target: _center,
-             zoom: 11.0,
-             ),
-             zoomGesturesEnabled: true,
-             mapType: _currentMapType,
-             markers: _markers,
-             onCameraMove: _onCameraMove,
-           ),
-           Padding(
-             padding: EdgeInsets.all(16.0),
-             child: Align(
-               alignment: Alignment.topRight,
-               child: Column(
-                 children: <Widget>[
-                   button(_onMapTypeButtonPressed,Icons.map),
-                   SizedBox(
-                     height: 16.0
-                   ),
-                   button(_onAddMarkerButtonPressed,Icons.add_location),
-                   SizedBox(
-                     height: 16.0,
-                   ),
-                   button(_goToPosition,Icons.location_searching),
-                  ],
-               ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Places to Garden'),
+        backgroundColor: Colors.green[600],
+      ),
+      body: Stack(
+        children: <Widget>[
+          _zoomminusfunction(),
+          _zoomplusfunction(),
+          GoogleMap(
+            onMapCreated: _onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: _center,
+              zoom: 11.0,
+            ),
+            zoomGesturesEnabled: true,
+            mapType: _currentMapType,
+            markers: _markers,
+            onCameraMove: _onCameraMove,
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Column(
+                children: <Widget>[
+                  button(_onMapTypeButtonPressed, Icons.map),
+                  SizedBox(height: 16.0),
+                  button(_onAddMarkerButtonPressed, Icons.add_location),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  button(_goToPosition, Icons.location_searching),
+                ],
               ),
             ),
-         ],
-       ),
-     );
+          ),
+        ],
+      ),
+    );
   }
 
-
-
-  Widget _buildContainer(){
+  Widget _buildContainer() {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Container(
@@ -197,41 +166,41 @@ Future<void> _goToPosition() async{
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: _boxes('https://i.ytimg.com/vi/DcmigBHpClI/maxresdefault.jpg',37.691314,-121.884594,"Creekside Park"),
-
-            ),
-
-            SizedBox(width: 10.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _boxes('https://i.pinimg.com/originals/ee/44/87/ee44875e090cf05fa307d5387fb77d3f.jpg',29.713304,95.747995,"Katy Park Garden"),
-
+              child: _boxes(
+                  'https://i.ytimg.com/vi/DcmigBHpClI/maxresdefault.jpg',
+                  37.691314,
+                  -121.884594,
+                  "Creekside Park"),
             ),
             SizedBox(width: 10.0),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: _boxes('https://extension.umd.edu/sites/extension.umd.edu/files/resize/_images/locations/cecil_county/communitygarden-498x374.jpg',29.782035,-95.689510,"Pleasanton Park Garden"),
-
+              child: _boxes(
+                  'https://i.pinimg.com/originals/ee/44/87/ee44875e090cf05fa307d5387fb77d3f.jpg',
+                  29.713304,
+                  95.747995,
+                  "Katy Park Garden"),
             ),
-
+            SizedBox(width: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _boxes(
+                  'https://extension.umd.edu/sites/extension.umd.edu/files/resize/_images/locations/cecil_county/communitygarden-498x374.jpg',
+                  29.782035,
+                  -95.689510,
+                  "Pleasanton Park Garden"),
+            ),
           ],
         ),
       ),
     );
-
-
   }
 
-
-
-
-  Widget _boxes(String _image, double lat, double long, String gardenName){
-
+  Widget _boxes(String _image, double lat, double long, String gardenName) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         _goToPosition();
       },
-
       child: Container(
         child: new FittedBox(
           child: Material(
@@ -249,7 +218,7 @@ Future<void> _goToPosition() async{
                     borderRadius: new BorderRadius.circular(24.0),
                     child: Image(
                       fit: BoxFit.fill,
-                      image: NetworkImage(_image) ,
+                      image: NetworkImage(_image),
                     ),
                   ),
                 ),
@@ -264,30 +233,20 @@ Future<void> _goToPosition() async{
           ),
         ),
       ),
-
-
     );
-
-
-
-
   }
 
-
-  Widget myDetailsContainer(String gardenName){
-
+  Widget myDetailsContainer(String gardenName) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Container(
-            child: Text(gardenName,
+            child: Text(
+              gardenName,
               style: TextStyle(
-                  color: Color(165),
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
-
+                  color: Color(165), fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -297,183 +256,12 @@ Future<void> _goToPosition() async{
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                child: Text('Accept the Planting request?') ,
+                child: Text('Accept the Planting request?'),
               )
             ],
           ),
         )
-
-
-
       ],
     );
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
