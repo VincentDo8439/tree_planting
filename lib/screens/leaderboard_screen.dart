@@ -50,11 +50,454 @@ class _LeaderBoardScreenState extends State<LeaderboardScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
-                      _leaderboardTile(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.green.withOpacity(0.4),
+                                width: 2,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: Offset(5, 5),
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                ),
+                                BoxShadow(
+                                  color: Colors.green[100],
+                                )
+                              ],
+                              borderRadius: BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: CircleAvatar(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors.orange,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            blurRadius: 1,
+                                            spreadRadius: 1,
+                                          ),
+                                          BoxShadow(
+                                              color: Colors.white.withOpacity(0.5),
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              offset: Offset(-2, -2))
+                                        ],
+                                        border: Border.all(color: Colors.green, width: 1),
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/profile.jpg'),
+                                          fit: BoxFit.fill,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Vincent Do',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    'Points: 200',
+                                    style: TextStyle(fontSize: 16, color: Colors.lightGreen[900]),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                "🥇",
+                                style: TextStyle(fontSize: 40, color: Colors.white),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Add Friend",
+                                    style: TextStyle(
+                                        color: Colors.white, fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.redAccent,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.green.withOpacity(0.4),
+                                width: 2,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: Offset(5, 5),
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                ),
+                                BoxShadow(
+                                  color: Colors.green[100],
+                                )
+                              ],
+                              borderRadius: BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: CircleAvatar(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors.orange,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            blurRadius: 1,
+                                            spreadRadius: 1,
+                                          ),
+                                          BoxShadow(
+                                              color: Colors.white.withOpacity(0.5),
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              offset: Offset(-2, -2))
+                                        ],
+                                        border: Border.all(color: Colors.green, width: 1),
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/profile1.jpg'),
+                                          fit: BoxFit.fill,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Art Young',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    'Points: 150',
+                                    style: TextStyle(fontSize: 16, color: Colors.lightGreen[900]),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 58,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Add Friend",
+                                    style: TextStyle(
+                                        color: Colors.white, fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.redAccent,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.green.withOpacity(0.4),
+                                width: 2,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: Offset(5, 5),
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                ),
+                                BoxShadow(
+                                  color: Colors.green[100],
+                                )
+                              ],
+                              borderRadius: BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: CircleAvatar(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors.orange,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            blurRadius: 1,
+                                            spreadRadius: 1,
+                                          ),
+                                          BoxShadow(
+                                              color: Colors.white.withOpacity(0.5),
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              offset: Offset(-2, -2))
+                                        ],
+                                        border: Border.all(color: Colors.green, width: 1),
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/profile2.jpg'),
+                                          fit: BoxFit.fill,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Andrew Mao',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    'Points: 130',
+                                    style: TextStyle(fontSize: 16, color: Colors.lightGreen[900]),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 35,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Add Friend",
+                                    style: TextStyle(
+                                        color: Colors.white, fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.redAccent,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.green.withOpacity(0.4),
+                                width: 2,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: Offset(5, 5),
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                ),
+                                BoxShadow(
+                                  color: Colors.green[100],
+                                )
+                              ],
+                              borderRadius: BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: CircleAvatar(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors.orange,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            blurRadius: 1,
+                                            spreadRadius: 1,
+                                          ),
+                                          BoxShadow(
+                                              color: Colors.white.withOpacity(0.5),
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              offset: Offset(-2, -2))
+                                        ],
+                                        border: Border.all(color: Colors.green, width: 1),
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/profile3.jpg'),
+                                          fit: BoxFit.fill,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Abdur Aziz',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    'Points: 100',
+                                    style: TextStyle(fontSize: 16, color: Colors.lightGreen[900]),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 50,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Add Friend",
+                                    style: TextStyle(
+                                        color: Colors.white, fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.redAccent,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.green.withOpacity(0.4),
+                                width: 2,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: Offset(5, 5),
+                                  blurRadius: 10,
+                                  spreadRadius: 5,
+                                ),
+                                BoxShadow(
+                                  color: Colors.green[100],
+                                )
+                              ],
+                              borderRadius: BorderRadius.all(Radius.circular(16))),
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: CircleAvatar(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: Colors.orange,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            blurRadius: 1,
+                                            spreadRadius: 1,
+                                          ),
+                                          BoxShadow(
+                                              color: Colors.white.withOpacity(0.5),
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              offset: Offset(-2, -2))
+                                        ],
+                                        border: Border.all(color: Colors.green, width: 1),
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/profile4.jpg'),
+                                          fit: BoxFit.fill,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Lucas Cai',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    'Points: 80',
+                                    style: TextStyle(fontSize: 16, color: Colors.lightGreen[900]),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 60,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: RaisedButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Add Friend",
+                                    style: TextStyle(
+                                        color: Colors.white, fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.redAccent,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 )
@@ -142,10 +585,7 @@ class _leaderboardTile extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              "🥇",
-              style: TextStyle(fontSize: 40, color: Colors.white),
-            ),
+            SizedBox(width: 50,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
